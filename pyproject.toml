@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hashcli"
+version = "1.0.0"
+description = "Professional cross-platform terminal toolkit for file, text, folder, and manifest hashes."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "HashCLI Contributors"}]
+dependencies = [
+  "rich>=13.7",
+  "typer>=0.12",
+]
+optional-dependencies.blake3 = ["blake3>=0.4"]
+optional-dependencies.dev = ["pytest>=8.0", "blake3>=0.4"]
+
+[project.scripts]
+hashcli = "hash_toolkit.cli:main"
+
+[tool.setuptools]
+packages = ["hash_toolkit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
